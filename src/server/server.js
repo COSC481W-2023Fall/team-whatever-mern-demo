@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+
 // If you use "npm run dev" while inside the server folder it should run the script with nodemon which will update the server automatically on file saves 
 const express = require('express');
 const cors = require('cors');
@@ -20,7 +21,10 @@ app.listen(process.env.PORT, () => {
 
 // Gives the front end the index information
 app.get('/', (req, res, next) => {
-    res.status(200).json("Hello! Enter your name: ");
+    
+    var temp = names.people[names.people.length-1].name;
+    
+    res.status(200).json("Hello, " + temp+ "!");
 });
 
 // Gives the front end the list of names to be used on the /names page
