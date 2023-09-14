@@ -1,3 +1,7 @@
+# React info can be found below
+
+To run the server and webapp, make sure you run `npm install` to get all necessary updates and packages. Once you are up to date, run `npm run dev`.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
