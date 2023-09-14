@@ -1,8 +1,7 @@
-[
+{
+  "people": [
     {
-        "name": "test"
-    },
-    {
-        "name:": "test2"
+      "name": "Tom"
     }
-]
+  ]
+}
