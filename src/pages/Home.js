@@ -33,14 +33,16 @@ const Home = () => {
     return (
         <div className="App">
             <h1>{message}</h1>
-            <input
-                type="text"
-                
-                placeholder="Enter your name"
-                value={nameInput}
-                onChange={(e) => setNameInput(e.target.value)}
-            />
-            <button onClick={handleSubmit}  >Submit!</button>
+            <div class="form">
+                <input
+                    type="text"
+                    placeholder="Enter your name"
+                    value={nameInput}
+                    onChange={(e) => setNameInput(e.target.value)}
+                />
+                <br></br>
+                <button onClick={handleSubmit}  >Submit!</button>
+            </div>
         </div>
     );
 };

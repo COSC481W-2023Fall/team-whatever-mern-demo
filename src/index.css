@@ -35,3 +35,20 @@ a:hover {
   background-color: black;
   color: white;
 }
+
+div.form {
+  text-align: center;
+}
+
+input {
+  border-radius: 32px;
+  border: 2px solid black;
+  padding: 0.5em 1em 0.5em 1em;
+  margin-bottom: 1em;
+}
+
+button {
+  border-radius: 32px;
+  border:2px solid black;
+  padding: 0.5em 1em 0.5em 1em;
+}
