@@ -35,7 +35,7 @@ const Home = () => {
     return (
         <div className="App">
             <div className={"card"}>
-            <h1>{message}</h1>
+            <h2>{message}</h2>
             <div className={"form"}>
                 <input
                     type="text"
