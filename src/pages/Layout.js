@@ -4,8 +4,11 @@ const Layout = () => {
   return (
     <>
       <nav>
-      <Link to="/">Home</Link>
-      <Link to="/names">Names</Link>
+      <h1>Team Whatever Demo</h1>
+      <div className={"nav-buttons"}>
+        <Link to="/">Home</Link>
+        <Link to="/names">Names</Link>
+      </div>
       </nav>
 
       <Outlet />
