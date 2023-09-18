@@ -6,14 +6,14 @@ const Home = () => {
 
     // Contacts the backend to retrieve the information
     useEffect(() => {
-        fetch("https://teamwhatever-demo.onrender.com")
+        fetch("https://demo-webserver.onrender.com")
             .then((res) => res.json())
             .then((data) => setMessage(data));
     }, []);
 
     const handleSubmit = () => {
         // Send the name input to the server
-        fetch("https://teamwhatever-demo.onrender.com/submit-name", {
+        fetch("https://demo-webserver.onrender.com/names", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
