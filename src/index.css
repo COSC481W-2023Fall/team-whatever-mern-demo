@@ -1,3 +1,7 @@
+:root {
+  --main-color: #c4ffd1;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,43 +11,64 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* --------------------- DIVS AND SECTIONS AND SUCH ----------------------- */
+body {
+  background-color: #222;
+}
+div.card {
+  background-color: var(--main-color);
+  border-radius: 32px;
+  width: 30%;
+  margin: 2em auto auto auto;
+  padding: 2em 2em 4em 2em;
+  text-align: center;
+  height: 250px;
+}
+nav {
+  text-align: center;
+  padding: 2em 1em 2em 1em;
+  height: fit-content;
+  color: white;
+}
+div.form {
+  text-align: center;
+}
+div.nav-buttons { 
+  text-align: center;
+}
+
+/* --------------------- TEXT AND LINKS ----------------------- */
+nav h1 {
+  font-size: 3em;
+  color: var(--main-color)
+}
+div.card h1 {
+  margin-bottom: 2em;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-nav {
-  padding: 2em 0em 2em 1em;
-  height: fit-content;
-  background-color: lightblue;
-}
-
-h1 {
-  text-align: center;
-}
-
-body {
-  background-color: rgba(238, 227, 162, 0.712);
-}
-
 a {
-  color: black;
+  background-color: #222;
+  color: var(--main-color);
+  font-weight: bold;
   margin-right: 0.5em;
   padding: 0.25em 1em 0.25em 1em;
-  border: 2px solid black;
+  border: 2px solid var(--main-color);
   border-radius: 32px;
   text-decoration: none;
+  box-shadow: 10px 13px 62px -7px rgba(0,0,0,0.75);
 }
-
 a:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--main-color);
+  color: black;
+}
+ul {
+  text-align: left;
 }
 
-div.form {
-  text-align: center;
-}
-
+/* --------------------- INPUTS AND BUTTONS ----------------------- */
 input {
   border-radius: 32px;
   border: 2px solid black;
@@ -55,4 +80,24 @@ button {
   border-radius: 32px;
   border:2px solid black;
   padding: 0.5em 1em 0.5em 1em;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--main-color);
+  }
+  nav h1 {
+    color: #222;
+  }
+  div.card {
+    background-color: var(--main-color);
+    color: #222;
+    border: 4px solid #222;
+    box-shadow: 10px 13px 34px -13px rgba(0,0,0,0.75);
+  }
+  a:hover {
+    background-color: var(--main-color);
+    color: black;
+    border: 2px solid #222;
+  }
 }

@@ -11,7 +11,7 @@ const Names = () => {
   }, []);
 
   return (
-    <div>
+    <div className={"card"}>
       <h1>Names</h1>
       <ul>
         {/* For loop for each name in the list of names */}
