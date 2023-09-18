@@ -73,13 +73,17 @@ input {
   border-radius: 32px;
   border: 2px solid black;
   padding: 0.5em 1em 0.5em 1em;
-  margin-bottom: 1em;
+  margin-bottom: 4em;
 }
 
 button {
+  background-color: #222;
+  color: var(--main-color);
+  font-weight: bold;
   border-radius: 32px;
   border:2px solid black;
   padding: 0.5em 1em 0.5em 1em;
+  width: 30%;
 }
 
 @media (prefers-color-scheme: light) {
