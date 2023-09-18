@@ -20,14 +20,16 @@ const Home = () => {
             },
             body: JSON.stringify({ name: nameInput }),
         })
-            .then((res) => res.json())
+            .then((res) => {
+                res.json()
+                window.location.reload();
+            })
             .then((data) => {
                 console.log(data);
             });
 
         // Empty the name input value for re-use
         setNameInput("");
-        window.location.reload(false);
     };
 
     return (
