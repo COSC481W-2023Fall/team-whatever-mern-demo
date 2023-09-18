@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 
 const Home = () => {
     const [message, setMessage] = useState("");
@@ -34,20 +38,18 @@ const Home = () => {
 
     return (
         <div className="App">
-            <div className={"card"}>
-            <h2>{message}</h2>
-            <div className={"form"}>
-                <input
-                    type="text"
-                    placeholder="Enter your name"
-                    value={nameInput}
-                    onChange={(e) => setNameInput(e.target.value)}
-                />
-                <br></br>
-                <button onClick={handleSubmit}  >Submit!</button>
-            </div>
-            </div>
-        </div>
+            <Card>
+                <Card.Body>
+                    <Card.Title>{message}</Card.Title>
+                    <Form.Control
+                        defaultValue={nameInput}
+                        placeholder="Enter your name"
+                        onChange={(e) => setNameInput(e.target.value)}
+                    />
+                    <Button onClick={handleSubmit}>Submit!</Button>
+                </Card.Body>
+            </Card>
+        </div >
     );
 };
 
