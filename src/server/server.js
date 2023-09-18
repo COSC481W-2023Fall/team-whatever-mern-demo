@@ -5,6 +5,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
+const PORT = 3030;
 
 const app = express();
 
@@ -16,7 +17,7 @@ const names = require('./names.json');
 
 // Logs the port # the server is on
 app.listen(process.env.PORT, () => {
-    console.log('listening on port ' + process.env.PORT);
+    console.log('listening on port ' + {PORT});
 });
 
 // Gives the front end the index information
