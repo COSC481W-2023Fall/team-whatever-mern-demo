@@ -5,7 +5,7 @@ const Names = () => {
 
   // Calls to the back end to get the names information from the json
   useEffect(() => {
-    fetch("https://teamwhatever-demo.onrender.com/names")
+    fetch("https://demo-webserver.onrender.com/names")
       .then((res) => res.json())
       .then((data) => setNames(data));
   }, []);
