@@ -13,7 +13,7 @@ const Home = () => {
 
     const handleSubmit = () => {
         // Send the name input to the server
-        fetch("https://demo-webserver.onrender.com/names", {
+        fetch("https://demo-webserver.onrender.com/submit-name", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
