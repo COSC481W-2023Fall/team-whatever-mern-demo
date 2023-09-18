@@ -33,7 +33,7 @@ const Home = () => {
     return (
         <div className="App">
             <h1>{message}</h1>
-            <div class="form">
+            <div className={"form"}>
                 <input
                     type="text"
                     placeholder="Enter your name"
