@@ -13,96 +13,129 @@ body {
 
 /* --------------------- DIVS AND SECTIONS AND SUCH ----------------------- */
 body {
-  background-color: #222;
-}
-div.card {
   background-color: var(--main-color);
-  border-radius: 32px;
-  width: 30%;
-  margin: 2em auto auto auto;
-  padding: 2em 2em 4em 2em;
-  text-align: center;
-  height: 250px;
 }
-nav {
-  text-align: center;
-  padding: 2em 1em 2em 1em;
-  height: fit-content;
-  color: white;
+.navbar {
+  background-color: var(--main-color);
 }
 div.form {
   text-align: center;
 }
-div.nav-buttons { 
+.card {
+  background-color: #222;
+  color: var(--main-color);
+  width: 30vw;
+  border-radius: 12px;
+  margin: auto;
+  margin-bottom: 3em;
   text-align: center;
+  padding: 0 2em 0 2em;
 }
-
+.list-group {
+  background-color: white;
+}
 /* --------------------- TEXT AND LINKS ----------------------- */
-nav h1 {
+h1 {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+  font-weight: bold;
   font-size: 3em;
-  color: var(--main-color)
-}
-div.card h2  {
-  margin-bottom: 2em;
-  min-height: 45px;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-a {
-  background-color: #222;
-  color: var(--main-color);
-  font-weight: bold;
-  margin-right: 0.5em;
-  padding: 0.25em 1em 0.25em 1em;
-  border: 2px solid var(--main-color);
-  border-radius: 32px;
-  text-decoration: none;
-  box-shadow: 10px 13px 62px -7px rgba(0,0,0,0.75);
-}
-a:hover {
-  background-color: var(--main-color);
-  color: black;
-}
 ul {
   text-align: left;
 }
+.card-title {
+  font-size: 2em; 
+  margin-bottom: 1em;
+  min-height: 45px;
+}
 
 /* --------------------- INPUTS AND BUTTONS ----------------------- */
-input {
-  border-radius: 32px;
-  border: 2px solid black;
+.form-control {
+  border-radius: 12px;
   padding: 0.5em 1em 0.5em 1em;
-  margin-bottom: 4em;
+  margin: auto auto 2em auto;
+  width: 90%;
+  text-align: center;
 }
-
-button {
-  background-color: #222;
+.btn {
+  background-color: var(--main-color);
+  color: #222;
+  border: 2px solid #222;
+  margin: 0 0.5em 2em 0.5em;
+  border-radius: 24px;
+}
+.btn:hover, .btn.active, .btn:active:focus {
   color: var(--main-color);
-  font-weight: bold;
-  border-radius: 32px;
-  border:2px solid black;
-  padding: 0.5em 1em 0.5em 1em;
-  width: 30%;
+  background-color: #222;
+  border: 2px solid #222;
+}
+.card .btn {
+  border-radius: 12px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card .btn, .card .btn:hover, .card .btn:active:focus {
+  background-color: var(--main-color);
+  color: #222;
+}
+.list-group {
+  margin-bottom: 2em;
+}
+.list-group-item {
+  background-color: var(--main-color);
+  color: #222;
+  border-color: #222;
 }
 
-@media (prefers-color-scheme: light) {
+/* ---------------------  MOBILE LAYOUT ----------------------- */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2em;
+  }
+  .card {
+    width: 90vw;
+  }
+}
+
+/* --------------------- DARK MODE COLORS  ----------------------- */
+@media (prefers-color-scheme: dark) {
   body {
-    background-color: var(--main-color);
+    background-color: #222;
   }
-  nav h1 {
+  h1 {  
+    color: var(--main-color);
+  }
+  .card {
+    background-color: var(--main-color);
     color: #222;
+    border: 4px solid var(--main-color);
   }
-  div.card {
-    background-color: var(--main-color);
+  .card .btn, .card .btn:hover, .card .btn:active:focus {
+    background-color: #222;
+    color: var(--main-color);
+  }
+  .btn {
+    color: var(--main-color);
+    background-color: #222;
+    border: 2px solid var(--main-color);
+  }
+  .btn:hover, .btn.active, .btn:active:focus {
     color: #222;
-    border: 4px solid #222;
-    box-shadow: 10px 13px 34px -13px rgba(0,0,0,0.75);
-  }
-  a:hover {
     background-color: var(--main-color);
-    color: black;
-    border: 2px solid #222;
+    border: 2px solid var(--main-color);
+  }
+  .list-group-item {
+    background-color: #222;
+    color: var(--main-color);
+    border-color: var(--main-color);
+  }
+  .form-control {
+    background-color: white;
   }
 }

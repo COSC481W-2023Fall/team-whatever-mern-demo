@@ -25,7 +25,7 @@ app.get('/', (req, res, next) => {
     
     var temp = names.people[names.people.length-1].name;
     
-    res.status(200).json("Hello, " + temp+ "!");
+    res.status(200).json(temp);
 });
 
 // Gives the front end the list of names to be used on the /names page

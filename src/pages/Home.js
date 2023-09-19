@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
 
 const Home = () => {
     const [message, setMessage] = useState("");
     const [nameInput, setNameInput] = useState(""); // New state for the name input
+    const inputBox = useRef(null);
 
     // Contacts the backend to retrieve the information
     useEffect(() => {
@@ -11,7 +15,7 @@ const Home = () => {
             .then((data) => setMessage(data));
     }, []);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         // Send the name input to the server
         fetch("https://demo-webserver.onrender.com/submit-name", {
             method: "POST",
@@ -21,33 +25,35 @@ const Home = () => {
             body: JSON.stringify({ name: nameInput }),
         })
             .then((res) => {
-                res.json()
-                window.location.reload();
+                res.json();
+                // Empty the name input value for re-use
+                inputBox.current.value = "";
             })
             .then((data) => {
                 console.log(data);
             });
-
-        // Empty the name input value for re-use
-        setNameInput("");
     };
+
+    const handleInput = (e) => {
+        setNameInput(e.target.value);
+        setMessage(e.target.value)
+    }
 
     return (
         <div className="App">
-            <div className={"card"}>
-            <h2>{message}</h2>
-            <div className={"form"}>
-                <input
-                    type="text"
-                    placeholder="Enter your name"
-                    value={nameInput}
-                    onChange={(e) => setNameInput(e.target.value)}
-                />
-                <br></br>
-                <button onClick={handleSubmit}  >Submit!</button>
-            </div>
-            </div>
-        </div>
+            <Card>
+                <Card.Body>
+                    <Card.Title>Hello, {message}!</Card.Title>
+                    <Form.Control
+                        ref={inputBox}
+                        defaultValue={nameInput}
+                        placeholder="Enter your name"
+                        onChange={(e) => handleInput(e)}
+                    />
+                    <Button onClick={(e) => handleSubmit(e)}>Submit!</Button>
+                </Card.Body>
+            </Card>
+        </div >
     );
 };
 
