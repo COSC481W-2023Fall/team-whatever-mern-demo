@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 
 const Home = () => {
@@ -36,15 +35,20 @@ const Home = () => {
         setNameInput("");
     };
 
+    const handleInput = (e) => {
+        setNameInput(e.target.value);
+        setMessage(e.target.value)
+    }
+
     return (
         <div className="App">
             <Card>
                 <Card.Body>
-                    <Card.Title>{message}</Card.Title>
+                    <Card.Title>Hello, {message}!</Card.Title>
                     <Form.Control
                         defaultValue={nameInput}
                         placeholder="Enter your name"
-                        onChange={(e) => setNameInput(e.target.value)}
+                        onChange={(e) => handleInput(e)}
                     />
                     <Button onClick={handleSubmit}>Submit!</Button>
                 </Card.Body>
