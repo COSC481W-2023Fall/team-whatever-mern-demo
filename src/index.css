@@ -92,6 +92,17 @@ ul {
   border-color: #222;
 }
 
+/* ---------------------  MOBILE LAYOUT ----------------------- */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2em;
+  }
+  .card {
+    width: 90vw;
+  }
+}
+
+/* --------------------- DARK MODE COLORS  ----------------------- */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #222;
