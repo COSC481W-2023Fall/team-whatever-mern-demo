@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-
-
+const username = encodeURIComponent("admin");
+const password = encodeURIComponent("5zerGz37zrIuzYEo")
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://admin:5zerGz37zrIuzYEo@democluster.5m0g3uv.mongodb.net/?retryWrites=true&w=majority";
+let uri = "mongodb+srv://${username}:${password}@democluster.5m0g3uv.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
