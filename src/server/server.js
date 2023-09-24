@@ -40,7 +40,7 @@ app.get('/names', async (req, res, next) => {
 });
 
 // Functions to submit a name to the json file for storage
-app.post('/submit-name', (req, res) => {
+app.post('/submit-name', async (req, res) => {
     const { name } = req.body;
     
     // If nothing is entered, it will not push empty name to the json
@@ -51,10 +51,14 @@ app.post('/submit-name', (req, res) => {
     // Add the new name to the json
     names.people.push({ name });
 
-    // Write the information to the json
-    fs.writeFileSync('./names.json', JSON.stringify(names, null, 2));
+    let collection = await db.collection("Users");
+    let result = await collection.insertOne(name)
+    res.send(result).status(204);
 
-    let namesURI = "mongodb+srv://${username}:${password}@democluster.5m0g3uv.mongodb.net --collection USERS --type json --file names.json"
+    // Write the information to the json
+    //fs.writeFileSync('./names.json', JSON.stringify(names, null, 2));
+
+    //let namesURI = "mongodb+srv://${username}:${password}@democluster.5m0g3uv.mongodb.net --collection USERS --type json --file names.json"
     
     res.status(201).json({ message: "Name submitted successfully" });
 });
