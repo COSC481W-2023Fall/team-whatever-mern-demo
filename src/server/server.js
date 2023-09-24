@@ -6,14 +6,13 @@
 // const cors = require('cors');
 // const fs = require('fs');
 
-
 import {} from 'dotenv/config'
 import express from "express"
 import cors from "cors"
 import fs from "fs"
 import db from "./conn2.mjs";
 import { ObjectId } from "mongodb";
-import namesList from "./names.json" assert {type: "json"}
+import names from "./names.json" assert {type: "json"}
 const PORT = 3030;
 
 const app = express();
@@ -23,7 +22,7 @@ app.use(express.json());
 
 
 // Imports the names json for name storage
-const names = namesList
+// const names = require('./names.json');
 
 // Logs the port # the server is on
 app.listen(process.env.PORT, () => {
