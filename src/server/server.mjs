@@ -5,7 +5,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-import db from "../db/conn.mjs";
+import db from "./conn.mjs";
 import { ObjectId } from "mongodb";
 const PORT = 3030;
 
@@ -50,14 +50,15 @@ app.post('/submit-name', async (req, res) => {
 
     // Add the new name to the json
     names.people.push({ name });
-    let collection = await db.collection("Users")
-    let result = await collection.insertOne(name)
-    res.send(result).status(204)
-    
-    // Write the information to the json
-    fs.writeFileSync('./names.json', JSON.stringify(names, null, 2));
 
-    let namesURI = "mongodb+srv://${username}:${password}@democluster.5m0g3uv.mongodb.net --collection USERS --type json --file names.json"
+    let collection = await db.collection("Users");
+    let result = await collection.insertOne(name)
+    res.send(result).status(204);
+
+    // Write the information to the json
+    //fs.writeFileSync('./names.json', JSON.stringify(names, null, 2));
+
+    //let namesURI = "mongodb+srv://${username}:${password}@democluster.5m0g3uv.mongodb.net --collection USERS --type json --file names.json"
     
     res.status(201).json({ message: "Name submitted successfully" });
 });
