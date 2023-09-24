@@ -5,7 +5,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-import db from "./conn.js";
+import db from "./conn.mjs";
 import { ObjectId } from "mongodb";
 const PORT = 3030;
 
