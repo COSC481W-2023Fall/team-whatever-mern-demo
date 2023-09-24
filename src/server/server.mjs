@@ -1,12 +1,19 @@
-require('dotenv').config()
+// require('dotenv').config()
 
 
 // If you use "npm run dev" while inside the server folder it should run the script with nodemon which will update the server automatically on file saves 
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-import db from "./conn.mjs";
+// const express = require('express');
+// const cors = require('cors');
+// const fs = require('fs');
+
+
+import {} from 'dotenv/config'
+import express from "express"
+import cors from "cors"
+import fs from "fs"
+import db from "./conn2.mjs";
 import { ObjectId } from "mongodb";
+import namesList from "./names.json" assert {type: "json"}
 const PORT = 3030;
 
 const app = express();
@@ -16,11 +23,11 @@ app.use(express.json());
 
 
 // Imports the names json for name storage
-const names = require('./names.json');
+const names = namesList
 
 // Logs the port # the server is on
 app.listen(process.env.PORT, () => {
-    console.log('listening on port ' + {PORT});
+    console.log('listening on port ' + process.env.PORT);
 });
 
 // Gives the front end the index information
