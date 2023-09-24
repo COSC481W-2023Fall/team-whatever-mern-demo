@@ -12,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 // Imports the names json for name storage
 const names = require('./names.json');
 
@@ -50,5 +51,7 @@ app.post('/submit-name', (req, res) => {
     // Write the information to the json
     fs.writeFileSync('./names.json', JSON.stringify(names, null, 2));
 
+    let namesURI = "mongodb+srv://${username}:${password}@democluster.5m0g3uv.mongodb.net --collection USERS --type json --file names.json"
+    
     res.status(201).json({ message: "Name submitted successfully" });
 });
