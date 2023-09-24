@@ -12,7 +12,7 @@ import cors from "cors"
 import fs from "fs"
 import db from "./conn2.mjs";
 import { ObjectId } from "mongodb";
-import names from "./names.json" assert {type: "json"}
+// import names from "./names.json" assert {type: "json"}
 const PORT = 3030;
 
 const app = express();
@@ -32,8 +32,8 @@ app.listen(process.env.PORT, () => {
 // Gives the front end the index information
 app.get('/', (req, res, next) => {
     
-    var temp = names.people[names.people.length-1].name;
-    
+    // var temp = names.people[names.people.length-1].name;
+    let temp = db.findOne()
     res.status(200).json(temp);
 });
 
