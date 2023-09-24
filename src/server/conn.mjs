@@ -26,5 +26,5 @@ async function run() {
 }
 run().catch(console.dir);
 
-let db = conn.db("users")
+let db = conn.db("Users")
 export default db;

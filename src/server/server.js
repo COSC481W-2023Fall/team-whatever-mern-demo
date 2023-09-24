@@ -5,7 +5,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-import db from "./conn.mjs";
+import db from "./conn.js";
 import { ObjectId } from "mongodb";
 const PORT = 3030;
 
@@ -34,9 +34,8 @@ app.get('/', (req, res, next) => {
 // Gives the front end the list of names to be used on the /names page
 app.get('/names', async (req, res, next) => {
     // Send the list of names as a JSON array
-    let collection = await db.collection("records");
-    let results = await collection.find({}).toArray();
-    res.send(results).status(200);
+    const namesList = names.people.map(person => person.name);
+    res.status(200).json(namesList);
 });
 
 // Functions to submit a name to the json file for storage
