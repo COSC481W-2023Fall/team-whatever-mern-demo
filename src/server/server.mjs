@@ -5,7 +5,7 @@ require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-import db from "./conn.js";
+import db from "../db/conn.mjs";
 import { ObjectId } from "mongodb";
 const PORT = 3030;
 
@@ -40,7 +40,7 @@ app.get('/names', async (req, res, next) => {
 });
 
 // Functions to submit a name to the json file for storage
-app.post('/submit-name', (req, res) => {
+app.post('/submit-name', async (req, res) => {
     const { name } = req.body;
     
     // If nothing is entered, it will not push empty name to the json
@@ -50,7 +50,10 @@ app.post('/submit-name', (req, res) => {
 
     // Add the new name to the json
     names.people.push({ name });
-
+    let collection = await db.collection("Users")
+    let result = await collection.insertOne(name)
+    res.send(result).status(204)
+    
     // Write the information to the json
     fs.writeFileSync('./names.json', JSON.stringify(names, null, 2));
 
