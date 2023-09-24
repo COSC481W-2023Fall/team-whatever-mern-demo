@@ -10,3 +10,5 @@ const connectDB = async () => {
 }
 
 module.exports = connectDB
+let db = conn.db("Users")
+export default db;
