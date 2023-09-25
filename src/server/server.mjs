@@ -29,8 +29,8 @@ app.get("/names", async (req, res) => {
   for (var i = 0; i < results.length; i++) {
     results[i] = results[i].name;
   }
-  res.send(results).status(200);
-  console.log(results);
+  res.send(parsedResults).status(200);
+  console.log(parsedResults);
 });
 
 // This section will help you create a new record.
