@@ -17,8 +17,10 @@ app.listen(PORT, () => {
 
 // get a single name from collection
 app.get("/", async (req, res) => {
+    console.log("Error in get / command");
     let collection = await db.collection("Users");
     let results = await collection.findOne({});
+    console.log(results);
     res.send(results).status(200);
   });
 
