@@ -29,7 +29,7 @@ app.get("/names", async (req, res) => {
   let collection = await db.collection("Users");
   let results = await collection.find({}).toArray();
 
-  res.send(results.name).status(200);
+  res.send(JSON.stringify(results)).status(200);
 });
 
 // This section will help you create a new record.
