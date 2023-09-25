@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node server.mjs",
     "dev": "nodemon server.mjs"
   },
   "keywords": [],
@@ -15,6 +15,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.5.2",
     "nodemon": "^3.0.1"
-  }
+  },
+    "engines": {
+      "node": ">=14 <18.17.1"
+    }
 }
