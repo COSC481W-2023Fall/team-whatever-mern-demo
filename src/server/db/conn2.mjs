@@ -14,7 +14,7 @@ let conn;
 try{
   conn = await client.connect();
   
-  console.log("Connection Successfull MONGO")
+  console.log("Connection Successful MONGO")
 }catch(e){
   console.error(e)
 }
