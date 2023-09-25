@@ -12,7 +12,7 @@ import cors from "cors"
 import fs from "fs"
 import db from "./conn2.mjs";
 import { ObjectId } from "mongodb";
-// import names from "./names.json" assert {type: "json"}
+import names from "./names.json" assert {type: "json"}
 const PORT = 3030;
 
 const app = express();
