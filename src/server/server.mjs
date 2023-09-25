@@ -15,14 +15,14 @@ app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
 
-// This section will help you get a list of all the records.
+// get a single name from collection
 app.get("/", async (req, res) => {
     let collection = await db.collection("Users");
-    let results = await collection.findOne({}).toArray();
+    let results = await collection.findOne({});
     res.send(results).status(200);
   });
 
-  // get a single name from collection
+// This section will help you get a list of all the records.
   app.get("/names", async (req, res) => {
     let collection = await db.collection("Users");
     let results = await collection.find({}).toArray();
