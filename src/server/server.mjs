@@ -17,10 +17,8 @@ app.listen(PORT, () => {
 
 // get a single name from collection
 app.get("/", async (req, res) => {
-  console.log("Error in get / command");
   let collection = await db.collection("Users");
   let results = await collection.findOne({}, { sort: { _id: -1 } });
-  console.log(results.name);
   res.send(JSON.stringify(results.name)).status(200);
 });
 
@@ -30,6 +28,7 @@ app.get("/names", async (req, res) => {
   let results = await collection.find({}).toArray();
 
   res.send(JSON.stringify(results.name)).status(200);
+  console.log(results);
 });
 
 // This section will help you create a new record.
