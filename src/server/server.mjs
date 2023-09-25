@@ -18,15 +18,15 @@ app.listen(PORT, () => {
 // get a single name from collection
 app.get("/", async (req, res) => {
   console.log("Error in get / command");
-  let collection = await db.collection("Users").name;
+  let collection = await db.collection("Users");
   let results = await collection.findOne({});
-  console.log(results);
-  res.send(results.body).status(200);
+  console.log(results.name);
+  res.send(results.name).status(200);
 });
 
 // This section will help you get a list of all the records.
 app.get("/names", async (req, res) => {
-  let collection = await db.collection("Users").name;
+  let collection = await db.collection("Users");
   let results = await collection.find({}).toArray();
 
   res.send(results).status(200);
