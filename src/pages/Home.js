@@ -11,6 +11,7 @@ const Home = () => {
     // Contacts the backend to retrieve the information
     useEffect(() => {
         fetch("https://demo-webserver.onrender.com")
+            .then((res) => res.json().stringify())
             .then((data) => setMessage(data));
     }, []);
 
