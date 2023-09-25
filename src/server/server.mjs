@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import "./loadEnvironment.mjs";
-import db from "./db/conn2.mjs"
-import {ObjectId} from "mongodb"
+import db from "./db/conn2.mjs";
+import { ObjectId } from "mongodb";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
@@ -17,28 +17,29 @@ app.listen(PORT, () => {
 
 // get a single name from collection
 app.get("/", async (req, res) => {
-    console.log("Error in get / command");
-    let collection = await db.collection("Users");
-    let results = await collection.findOne({});
-    console.log(results);
-    res.send(results.body).status(200);
-  });
+  console.log("Error in get / command");
+  let collection = await db.collection("Users").name;
+  let results = await collection.findOne({});
+  console.log(results);
+  res.send(results.body).status(200);
+});
 
 // This section will help you get a list of all the records.
-  app.get("/names", async (req, res) => {
-    let collection = await db.collection("Users");
-    let results = await collection.find({}).toArray();
-    res.send(results).status(200);
-  });  
-  
-  // This section will help you create a new record.
-  app.post("/submit-name", async (req, res) => {
-    let newDocument = {
-      name: req.body.name
-    };
-    let collection = await db.collection("Users");
-    let result = await collection.insertOne(newDocument);
-    res.send(result).status(204);
-  });
-  
+app.get("/names", async (req, res) => {
+  let collection = await db.collection("Users").name;
+  let results = await collection.find({}).toArray();
+
+  res.send(results).status(200);
+});
+
+// This section will help you create a new record.
+app.post("/submit-name", async (req, res) => {
+  let newDocument = {
+    name: req.body.name,
+  };
+  let collection = await db.collection("Users");
+  let result = await collection.insertOne(newDocument);
+  res.send(result).status(204);
+});
+
 export default app;
