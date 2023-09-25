@@ -1,19 +1,14 @@
 import express from "express";
 import cors from "cors";
 import "./loadEnvironment.mjs";
+import db from "../db/conn2.mjs"
+import {ObjectId} from "mongodb"
 
 const PORT = process.env.PORT || 5050;
 const app = express();
 
-import express from "express"
-import db from "../db/conn2.mjs"
-import {ObjectId} from "mongodb"
-
-
 app.use(cors());
 app.use(express.json());
-
-
 
 // start the Express server
 app.listen(PORT, () => {
@@ -44,6 +39,4 @@ app.get("/", async (req, res) => {
     res.send(result).status(204);
   });
   
-  
-  
-  export default app;
+export default app;
