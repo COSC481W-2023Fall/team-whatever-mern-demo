@@ -21,7 +21,7 @@ app.get("/", async (req, res) => {
     let collection = await db.collection("Users");
     let results = await collection.findOne({});
     console.log(results);
-    res.send(results.body.name).status(200);
+    res.send(results.body).status(200);
   });
 
 // This section will help you get a list of all the records.
