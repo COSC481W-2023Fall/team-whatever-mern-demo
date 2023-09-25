@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "./loadEnvironment.mjs";
-import db from "../db/conn2.mjs"
+import db from "./db/conn2.mjs"
 import {ObjectId} from "mongodb"
 
 const PORT = process.env.PORT || 5050;
