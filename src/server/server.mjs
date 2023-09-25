@@ -19,7 +19,7 @@ app.listen(PORT, () => {
 app.get("/", async (req, res) => {
   console.log("Error in get / command");
   let collection = await db.collection("Users");
-  let results = await collection.findOne({});
+  let results = await collection.findOne({}, { sort: { _id: -1 } });
   console.log(results.name);
   res.send(results.name).status(200);
 });
@@ -29,7 +29,7 @@ app.get("/names", async (req, res) => {
   let collection = await db.collection("Users");
   let results = await collection.find({}).toArray();
 
-  res.send(results).status(200);
+  res.send(results.name).status(200);
 });
 
 // This section will help you create a new record.
