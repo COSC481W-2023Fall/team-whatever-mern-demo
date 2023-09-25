@@ -28,10 +28,10 @@ app.get("/names", async (req, res) => {
   let results = await collection.find({}).toArray();
   var parsedResults = JSON.parse(results);
   for (var i = 0; i < parsedResults.length; i++) {
-    parsedResults[i] = parsedResults[i].name;
+    parsedResults[i] = JSON.stringify(parsedResults[i].name);
   }
   res.send(parsedResults).status(200);
-  console.log(parsedResults);
+  console.log(parsedResults[0]);
 });
 
 // This section will help you create a new record.
